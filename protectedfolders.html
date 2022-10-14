@@ -1,0 +1,616 @@
+<html lang="english" dir="ltr" data-style="basic">
+<!--
+   vPanel Demo
+   (c) 2022-Present Wybe Network, all rights reserved. The idea and text is from SmallHost, at smallhost.us.to.
+   This is a demo version of vPanel for MOFH-based providers.
+   You are free to use this code with changes that will be explained later. 
+   Providing/retaining credit to Wybe and SmallHost is recommended, but not required.
+   Enjoy! ^w^
+-->
+<head>
+   <style type="text/css">
+      .ng-animate.item:not(.left):not(.right) {
+         -webkit-transition: 0s ease-in-out left;
+         transition: 0s ease-in-out left
+      }
+   </style>
+   <style type="text/css">
+      @charset "UTF-8";
+
+      [ng\:cloak],
+      [ng-cloak],
+      [data-ng-cloak],
+      [x-ng-cloak],
+      .ng-cloak,
+      .x-ng-cloak,
+      .ng-hide:not(.ng-hide-animate) {
+         display: none !important;
+      }
+
+      ng\:form {
+         display: block;
+      }
+
+      .ng-animate-shim {
+         visibility: hidden;
+      }
+
+      .ng-anchor {
+         position: absolute;
+      }
+   </style>
+   <title> </title>
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width">
+   <!-- Chrome, Firefox OS and Opera -->
+   <meta name="theme-color" content="#293a4a">
+   <!-- Mobile Chrome-->
+   <meta name="mobile-web-app-capable" content="yes">
+   <meta name="mobile-web-app-status-bar-style" content="default">
+   <!-- iOS Safari -->
+   <meta name="apple-mobile-web-app-capable" content="yes">
+   <meta name="apple-mobile-web-app-status-bar-style" content="default">
+   <link rel="shortcut icon" href="elements/favicon.ico" type="image/x-icon">
+   <link rel="stylesheet" type="text/css" href="elements/original.master-ltr.cmb.min.css">
+   <link rel="stylesheet" type="text/css" href="elements/chosen.min.css">
+   <style type="text/css">
+      /* Embedding: /usr/local/cpanel/base/frontend/paper_lantern/home/dashboard.min.css */
+      #cpanel_body {
+         max-width: none
+      }
+
+      .panel-widget {
+         border-radius: 3px;
+         box-shadow: 0 0 3px rgba(0, 0, 0, .2);
+         height: auto;
+         border: 0;
+         margin-bottom: 15px;
+         display: table;
+         width: 100%;
+         max-width: 100%
+      }
+
+      .widget-heading {
+         border: 1px solid #293a4a;
+         background-color: rgba(41, 58, 74, .95);
+         color: #fff;
+         text-transform: uppercase
+      }
+
+      .widget-heading .close {
+         color: #fff;
+         opacity: 1
+      }
+
+      .widget-draggable {
+         cursor: move
+      }
+
+      .group-header-indicator {
+         cursor: pointer
+      }
+
+      html[dir="rtl"] .pull-right {
+         float: left !important
+      }
+
+      .alert-list {
+         margin: 0;
+         padding: 0;
+         width: 100%
+      }
+
+      .alert-item {
+         padding: 0 8px;
+         display: inline-block;
+         width: 50%;
+         vertical-align: top;
+         float: left;
+         zoom: 1;
+         *display: inline
+      }
+
+      html[dir="rtl"] .alert-item {
+         float: right
+      }
+
+      @media(max-width:767px) {
+         .alert-item {
+            width: 100%;
+            padding: 0 8px
+         }
+      }
+
+      .drag {
+         opacity: .5
+      }
+
+      .drag+.drag-over,
+      #content .drag-hidden {
+         margin: 0;
+         height: 0;
+         outline-style: none
+      }
+
+      .drag-over {
+         outline-style: dashed;
+         height: 80px;
+         margin: 10px 0
+      }
+
+      .drop-area {
+         padding: 5px 0
+      }
+
+      #jump-search {
+         margin-bottom: 5px
+      }
+
+      .icon-menu-section {
+         margin-bottom: 5px
+      }
+
+      .icon-container-body {
+         padding-left: 15px;
+         padding-top: 15px;
+         clear: both;
+         margin-left: 0;
+         margin-right: 0;
+         overflow: hidden;
+         width: 100%
+      }
+
+      html[dir="rtl"] .icon-container-body {
+         padding-right: 15px;
+         padding-left: 0
+      }
+
+      .item {
+         float: left;
+         height: 60px;
+         padding: 0;
+         text-align: left
+      }
+
+      html[dir="rtl"] .item {
+         text-align: right;
+         float: right
+      }
+
+      .icon {
+         display: block;
+         margin: auto
+      }
+
+      .itemContentWrapper {
+         padding: 0;
+         width: 100%
+      }
+
+      .itemImageWrapper {
+         display: inline-block;
+         vertical-align: middle
+      }
+
+      .itemTextWrapper {
+         padding: 10px 0 10px 5px;
+         display: inline-block;
+         vertical-align: middle;
+         width: 200px
+      }
+
+      html[dir="rtl"] .itemTextWrapper {
+         padding: 10px 5px 10px 0
+      }
+
+      .icon-menu-section .close,
+      .icon-menu-section .close:hover,
+      .icon-menu-section .close:active,
+      .icon-menu-section .close:focus {
+         opacity: 1;
+         color: #fff
+      }
+
+      @media(min-width:992px) {
+         html[dir="ltr"] #stats {
+            padding-left: 0
+         }
+
+         html[dir="rtl"] #stats {
+            padding-right: 0
+         }
+      }
+
+      .app-name {
+         text-transform: capitalize;
+         padding: 0 0 5px 0;
+         display: block;
+         word-break: break-all
+      }
+
+      .general-info-label {
+         text-transform: capitalize;
+         display: block
+      }
+
+      .general-info-value {
+         display: block
+      }
+
+      .progress {
+         margin: 5px 0 5px 0
+      }
+
+      .progress-bar-disabled {
+         background-color: #b2b2b2
+      }
+
+      .progress {
+         height: 4px;
+         border-radius: 0;
+         box-shadow: none;
+         background: #c8c8c8
+      }
+
+      .progress .progress-bar {
+         box-shadow: none
+      }
+
+      .warning .app-stat-upgrade .fa-exclamation-triangle {
+         color: #8a6d3b
+      }
+
+      .danger .app-stat-upgrade .fa-exclamation-triangle {
+         color: #a94442
+      }
+
+      .success .progress-bar {
+         background-color: #5cb85c
+      }
+
+      .info .progress-bar {
+         background-color: #5bc0de
+      }
+
+      .warning .progress-bar {
+         background-color: #f0ad4e
+      }
+
+      .danger .progress-bar {
+         background-color: #d9534f
+      }
+
+      #statsSection tr.success.app-stat-row,
+      #statsSection tr.info.app-stat-row {
+         border-left: none
+      }
+
+      #statsSection tr.success td,
+      #statsSection tr.info td {
+         background: 0
+      }
+
+      #statsSection .app-stat-upgrade {
+         width: 50px;
+         padding: 0;
+         line-height: 75px;
+         text-align: center
+      }
+
+      .app-stat-upgrade a {
+         display: none;
+         height: 100%;
+         width: 100%;
+         text-align: center;
+         color: #fff;
+         background-color: #428bca
+      }
+
+      .warning>.app-stat-upgrade>a>i,
+      .danger>.app-stat-upgrade>a>i {
+         vertical-align: middle
+      }
+
+      .warning>.app-stat-upgrade>a,
+      .danger>.app-stat-upgrade>a {
+         display: inline-block
+      }
+
+      .updating-elements {
+         display: inline-block
+      }
+
+      .application-list-loading-indicator {
+         margin: auto;
+         font-weight: 500;
+         font-size: 36px;
+         text-align: center;
+         vertical-align: middle;
+         padding: 20px 0
+      }
+
+      /* Embedding: /usr/local/cpanel/base/frontend/paper_lantern/css/angular-chosen-spinner.min.css */
+      .localytics-chosen.loading+.chosen-container-multi .chosen-choices {
+         background-image: url('images/spinner.gif');
+         background-repeat: no-repeat;
+         background-position: 98%
+      }
+
+      html[dir="rtl"] .localytics-chosen.loading+.chosen-container-multi .chosen-choices {
+         background-position: 2%
+      }
+
+      .localytics-chosen.loading+.chosen-container-single .chosen-single span {
+         background: url('images/spinner.gif') no-repeat right
+      }
+
+      html[dir="rtl"] .localytics-chosen.loading+.chosen-container-single .chosen-single span {
+         background: url('images/spinner.gif') no-repeat left
+      }
+
+      .localytics-chosen.loading+.chosen-container-single .chosen-single .search-choice-close {
+         display: none
+      }
+   </style>
+   <link rel="stylesheet" type="text/css" href="elements/icon_spritemap.css">
+   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+   <script type="text/javascript" src="elements/bootstrap.min.js"></script>
+</head>
+
+<body id="cpanel_body" class="yui-skin-sam">
+  <div id="wrap">
+    <header id="masterAppContainer" ng-controller="applicationListController">
+        <div class="navbar navbar-inverse navbar-cpanel navbar-fixed-top" role="navigation">
+                <div class="navbar-header">
+                    <button type="button" id="btnSideBarToggle" class="cp-nav-toggle">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="cp-icon-bar"></span>
+                        <span class="cp-icon-bar"></span>
+                        <span class="cp-icon-bar"></span>
+                    </button>
+
+
+                    
+                        <a id="lnkHeaderHome" class="navbar-brand" target="_top" href="indexpl.php" title="Home">
+                            <img id="imgLogo" class="navbar-brand-logo" src="https://images.hostmessage.info/login_logo/81ecdd48983c97c51b0f00ecc842f6f6.jpg" alt="">
+                        </a>
+                    
+
+                    <script type="text/ng-template" id="customTemplate.html">
+                      <a href="{{ match.model.url }}" ng-attr-target="{{match.model.target}}" ng-bind-html="match.model.name">
+                      </a>
+                    </script>
+<div class="navbar-preferences form-inline">
+                     <div class="btn-group open">
+                        <button id="btnUserPref" data-toggle="dropdown" class="btn dropdown-toggle user-preferences-btn">
+                        <span id="userImg" class="glyphicon glyphicon-user"></span>
+                        <span id="lblUserNameTxt" class="hidden-inline-xs">YOURPREFIX_DEMO</span>
+                        <span id="caretImg" class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-right">
+                           <li>
+                              <a id="lnkUserPrefChangePwd" href="#" data-toggle="modal" data-target="#demo">Change Password</a>
+                           </li>
+                           <li>
+                              <a id="lnkUserPrefChangeLang" href="#" data-toggle="modal" data-target="#demo">Change Language</a>
+                           </li>
+                           <li>
+                              <a id="lnkUserPrefUpdateContactInfo" href="#" data-toggle="modal" data-target="#demo">Update Contact Email                                    </a>
+                           </li>
+                           <li>
+                              <a id="lnkUserPrefResetInterface" href="#" data-toggle="modal" data-target="#demo" onclick="reset_all_interface_settings()">
+                              Reset Page Settings 
+                              </a>
+                           </li>
+                        </ul>
+                     </div>
+                     <a id="lnkHeaderLogout" target="_top" href="#" data-toggle="modal" data-target="#demo" class="btn link-buttons">
+                     <span id="logoutImg" class="glyphicon glyphicon-log-out"></span>
+                     <span id="lblLogout" class="hidden-inline-xs">Log Out</span>
+                     </a>
+                  </div>
+
+
+                        <a id="lnkHeaderLogout" target="_top" href="/panel/indexpl.php?option=signout" class="btn link-buttons">
+                            <span id="logoutImg" class="glyphicon glyphicon-log-out"></span>
+                            <span id="lblLogout" class="hidden-inline-xs">Log Out</span>
+                        </a>
+
+                    </div>
+                </div>
+        </div>
+        <!-- UI INCLUDES GLOBAL HEADER -->
+<div id="include-global-header">
+
+
+</div>
+
+                <!-- UI INCLUDES GLOBAL HEADER END-->
+    </header>
+    <aside id="sidebar">
+        <a id="lnkMenu" href="indexpl.php" title="Home" class="active" data-toggle="tooltip" data-placement="right">
+            <i class="fa fa-2x fa-th" id="imgMenu"></i>
+        </a>
+        <a id="24356379780576373" href="/panel/indexpl.php?option=upgrade-new&amp;ttt=776627963145224192" title="Upgrade Plans" data-toggle="tooltip" data-placement="right">
+            <img width="28px" height="28px" src="/panel/images/pl-sidebar-upgrade.png">
+        </a>
+
+<br><br>
+<div style="position: float;left:100px; vertical-align:middle;">
+</div>
+    </aside>
+<div id="content"><div class="row"><div class="col-xs-12 col-md-12 text-center"><ins class="adsbygoogle" style="display:block; height: 90px" data-full-width-responsive="true" data-ad-client="ca-pub-7281184434591176" data-ad-slot="3301284143"><iframe id="aswift_0" style="height: 1px !important; max-height: 1px !important; max-width: 1px !important; width: 1px !important;"><iframe id="google_ads_frame0"></iframe></iframe></ins></div></div>
+<div class="body-content">
+<style type="text/css">
+.spriteicon_img_mini {float:left;margin-right:5px;background: url("/panel/res/icon_sprites_img_scale_60percent.png");} #icon-password-protect_mini {background-position:0 -1379px;width:19px;height:19px; }
+</style>
+<h1 class="page-header">
+            <span id="icon-directory_privacy" class="page-icon icon-directory_privacy"></span>
+            <span id="pageHeading">Directory Privacy</span>
+            
+        </h1>
+
+        <style type="text/css">
+table {
+   font-size: 11px;
+}
+td {
+    font-size: 11px;
+}
+</style> 
+
+Set a password to protect certain directories of your account. When you enable this feature, a user that tries to open a protected folder will be prompted to enter a username and password before they can access your content.<br><br>Firstly choose the domain name that you would like to enable / disable a protected folder on:<table><tbody></tbody></table><br><div class="highlight">Resource id #26<table><tbody><form name="redirect_add" method="post" action="/panel/indexpl.php?option=protectedfolders_configure_1"></form><tr><td><big><b>Domain Name</b></big></td><td><select class="form-control" name="domain_name"><option>demo.com</option></select></td></tr><tr><td><br></td></tr><tr><td><input type="submit" class="btn btn-primary" name="Submit" value="Alter Protection"></td></tr></tbody></table></div></div><div class="row"><div class="col-xs-12 col-md-12"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7281184434591176" data-ad-slot="3301284143" data-ad-format="auto"><iframe id="aswift_1" style="height: 1px !important; max-height: 1px !important; max-width: 1px !important; width: 1px !important;"><iframe id="google_ads_frame1"></iframe></iframe></ins></div></div></div><footer>
+    <!-- UI INCLUDES GLOBAL FOOTER -->
+        <!-- UI INCLUDES GLOBAL FOOTER END -->
+
+    <div class="container-fluid">
+<br>
+&nbsp;
+       <div class="navbar" style="display: none;">
+
+            <div class="navbar-brand" style="display:inline-block; z-index:2147483647; visibility:invisible;">
+                <a id="lnkPoweredByCpanel" href="http://www.cpanel.net" target="cpanel" title="cPanel, Inc." style="display:inline-block; z-index:2147483647; visibility:visible;">
+                    <img id="imgPoweredByCpanel" src="/panel/pl-res/powered_by_cpanel.png" alt="cPanel, Inc." style="display:inline-block; z-index:2147483647; visibility:visible;">
+                </a>
+                <sub id="txtCpanelVersion" style="display:inline-block; z-index:2147483647; visibility:visible;"></sub>
+            </div>
+        </div>
+    </div>
+</footer><noscript><div class="statcounter"><a title="web statistics"
+href="http://statcounter.com/" target="_blank"><img
+class="statcounter"
+src="http://c.statcounter.com/2288747/0/6cc1e10a/1/"
+alt="web statistics"></a></div></noscript><table>	
+
+        
+        
+
+
+
+
+
+
+
+
+        <script>
+            CPANEL.lang.Close=CPANEL.lang.close="Close";CPANEL.lang.cancel="Cancel";CPANEL.lang.unlimited="Unlimited";CPANEL.lang.or="or";CPANEL.lang.ajax_loading="Loading …";CPANEL.lang.password_generator="Password Generator";CPANEL.lang.generate_password="Generate Password";CPANEL.lang.advanced="Advanced Options";CPANEL.lang.confirm_copy_password="I have copied this password in a safe place.";CPANEL.lang.use_password="Use Password";CPANEL.lang.length="Length";CPANEL.lang.alpha_characters="Alpha Characters";CPANEL.lang.nonalpha_characters="Non Alpha Characters";CPANEL.lang.both="Both";CPANEL.lang.lowercase="Lowercase";CPANEL.lang.uppercase="Uppercase";CPANEL.lang.numbers="Numbers";CPANEL.lang.symbols="Symbols";CPANEL.lang.password_strength="Password Strength";CPANEL.lang.passwords_match="Passwords Match";CPANEL.lang.password_validator_no_spaces="Password cannot have spaces.";CPANEL.lang.password_validator_no_empty="Password cannot be empty.";CPANEL.lang.password_validator_no_match="Passwords do not match.";CPANEL.lang.Validation_Errors="Validation Errors";CPANEL.lang.strength_phrase_very_weak="Very Weak";CPANEL.lang.strength_phrase_weak="Weak";CPANEL.lang.strength_phrase_ok="OK";CPANEL.lang.strength_phrase_strong="Strong";CPANEL.lang.strength_phrase_very_strong="Very Strong";CPANEL.lang.click_to_close="Click to close.";CPANEL.lang.toggle_more="more »";CPANEL.lang.toggle_less="less »";CPANEL.lang.json_error=CPANEL.lang.Error="Error";CPANEL.lang.json_parse_failed="JSON parse failed.";CPANEL.lang.ajax_error="AJAX Error";CPANEL.lang.ajax_try_again="Please refresh the page and try again.";
+        </script>
+        
+
+<script type="text/javascript">
+    register_interfacecfg_nvdata('xmainrollstatus');
+    register_interfacecfg_nvdata('xmaingroupsorder');
+</script>
+
+         
+         <script>
+            PAGE.applicationList = [{"searchText":"File Manager file-manager","target":"file_manager","url":"filemanager\/index.html","name":"File Manager"},{"url":"cpanelpro\/images.html","name":"Images","searchText":"image manager resize manager scaler thumbnailer format Images"},{"searchText":"Directory Privacy passwordprotect password protect","url":"htaccess\/index.html","name":"Directory Privacy"},{"url":"diskusage\/index.html","name":"Disk Usage","searchText":"Disk Usage disk space usage disk-usage"},{"url":"ftp\/accounts.html","name":"FTP Accounts","searchText":"FTP Accounts ftp create"},{"name":"FTP Connections","url":"ftp\/session.html","searchText":"FTP Connections ftp accounts ftp session control"},{"searchText":"Backup restore","url":"backup\/index.html","name":"Backup"},{"url":"backup\/wizard.html","name":"Backup Wizard","searchText":"Backup Wizard restore"},{"name":"phpMyAdmin","url":"sql\/PhpMyAdmin.html","searchText":"phpMyAdmin database","target":"_blank"},{"searchText":"MySQL Databases MySQL® Databases","url":"sql\/index.html","name":"MySQL® Databases"},{"url":"sql\/wizard1.html","name":"MySQL® Database Wizard","searchText":"MySQL Database Wizard mysql database MySQL® Database Wizard"},{"searchText":"Remote MySQL Remote MySQL®","name":"Remote MySQL®","url":"sql\/managehost.html"},{"searchText":"PostgreSQL Databases postgres database postgresql","url":"psql\/index.html","name":"PostgreSQL Databases"},{"url":"psql\/wizard1.html","name":"PostgreSQL Database Wizard","searchText":"PostgreSQL Database Wizard postgres postgresql database"},{"url":"\/cpsess8049864136\/3rdparty\/phpPgAdmin\/index.php","name":"phpPgAdmin","searchText":"phpPgAdmin database psql","target":"_blank"},{"searchText":"Get In Google","url":"\/cpsess8049864136\/frontend\/paper_lantern\/attracta\/index.live.pl?id=31","name":"Get In Google"},{"url":"\/cpsess8049864136\/frontend\/paper_lantern\/attracta\/index.live.pl?id=32","name":"SEO Tools","searchText":"SEO Tools"},{"searchText":"Increase Website Traffic","name":"Increase Website Traffic","url":"\/cpsess8049864136\/frontend\/paper_lantern\/attracta\/index.live.pl?id=33"},{"name":"One-Click Sitemap","url":"\/cpsess8049864136\/frontend\/paper_lantern\/attracta\/index.live.pl?id=36","searchText":"One-Click Sitemap"},{"name":"Link Building","url":"\/cpsess8049864136\/frontend\/paper_lantern\/attracta\/index.live.pl?id=35","searchText":"Link Building"},{"name":"SEO Tips","url":"\/cpsess8049864136\/frontend\/paper_lantern\/attracta\/index.live.pl?id=37","searchText":"SEO Tips"},{"searchText":"Google Website Services","url":"\/cpsess8049864136\/frontend\/paper_lantern\/attracta\/index.live.pl?id=34","name":"Google Website Services"},{"url":"site_publisher\/index.html","name":"Site Publisher","searchText":"site publisher builder start website generator template Site Publisher"},{"name":"Addon Domains","url":"addon\/index.html","searchText":"Domains Addon domain Addon Domains"},{"url":"subdomain\/index.html","name":"Subdomains","searchText":"Subdomains domain"},{"url":"park\/index.html","name":"Aliases","searchText":"Aliases Parked domains domain"},{"name":"Redirects","url":"mime\/redirect.html","searchText":"Redirects rewrite modrewrite"},{"searchText":"Simple Zone Editor cname record a record DNS","url":"zoneedit\/simple.html","name":"Simple Zone Editor"},{"searchText":"Advanced Zone Editor aaaa srv txt ttl DNS CNAME","url":"zoneedit\/advanced.html","name":"Advanced Zone Editor"},{"url":"mail\/pops.html","name":"Email Accounts","searchText":"email accounts mail pop imap smtp Email Accounts"},{"searchText":"Forwarders forward","url":"mail\/fwds.html","name":"Forwarders"},{"name":"MX Entry","url":"mail\/mx.html","searchText":"MX Entry dns"},{"url":"mail\/autores.html","name":"Autoresponders","searchText":"Autoresponders autoresponder auto responders"},{"url":"mail\/def.html","name":"Default Address","searchText":"Default Address"},{"searchText":"Mailing Lists mailman","name":"Mailing Lists","url":"mail\/lists.html"},{"searchText":"Global Email Filters filter account level filtering","name":"Global Email Filters","url":"mail\/filters\/userfilters.html"},{"searchText":"User Filters Email user level Filtering filter Email Filters","url":"mail\/filters\/managefilters.html","name":"Email Filters"},{"url":"mail\/csvimport.html","name":"Address Importer","searchText":"Address Importer Import Addresses Forwarders Mail csv import xls import"},{"name":"Apache SpamAssassin™","url":"mail\/spam\/spam.html","searchText":"Spam Assassin spamassassin Apache SpamAssassin Apache SpamAssassin™"},{"url":"gpg\/index.html","name":"Encryption","searchText":"Encryption gpg keys GnuPG Keys"},{"name":"BoxTrapper","url":"mail\/boxtrapper.html","searchText":"BoxTrapper filter"},{"url":"mail\/calendars_and_contacts\/index.html","name":"Calendars and Contacts","searchText":"email calendar contact address book CalDAV CardDAV Calendars and Contacts"},{"url":"stats\/lastvisitors_landing.html","name":"Visitors","searchText":"latest visitors Visitors"},{"name":"Errors","url":"stats\/errlog.html","searchText":"Errors errorlog error log"},{"name":"Bandwidth","url":"stats\/bandwidth.html","searchText":"Bandwidth bandmin transfer"},{"name":"Raw Access","url":"raw\/index.html","searchText":"Raw Access logs raw logs rawlogs"},{"url":"stats\/awstats_landing.html","name":"Awstats","searchText":"Awstats awstats"},{"searchText":"Analog Stats","name":"Analog Stats","url":"stats\/analog_landing.html"},{"searchText":"Webalizer stats","name":"Webalizer","url":"stats\/webalizer_landing.html"},{"name":"Webalizer FTP","url":"stats\/webalizerftp_landing.html","searchText":"Webalizer FTP stats ftp"},{"searchText":"Metrics Editor stats manager choose log programs","url":"statmanager\/index.html","name":"Metrics Editor"},{"name":"CPU and Concurrent Connection Usage","url":"stats\/resourceusage.html","searchText":"CPU and Concurrent Connection Usage"},{"name":"Script Activity","url":"throttledscripts\/index.livephp","searchText":"Script Activity"},{"name":"IP Blocker","url":"denyip\/index.html","searchText":"IP Blocker ip deny manager"},{"searchText":"SSL\/TLS certificate key csr","name":"SSL\/TLS","url":"ssl\/index.html"},{"name":"Hotlink Protection","url":"mime\/hotlink.html","searchText":"Hotlink Protection"},{"searchText":"Leech Protection protect","url":"htaccess\/leechprotect\/leechprotect.html","name":"Leech Protection"},{"url":"security\/mod_security\/index.html","name":"ModSecurity","searchText":"ModSecurity mod security mod_security"},{"name":"Two-Factor Authentication","url":"security\/2fa\/index.html","searchText":"Two Factor Authentication 2fa tfa Two-Factor Authentication"},{"searchText":"SiteLock","url":"sitelock\/index.livephp","name":"SiteLock"},{"searchText":"Lets Encrypt SSL","url":"letsencrypt\/letsencrypt.live.cgi","name":"Lets Encrypt SSL"},{"searchText":"CloudFlare","name":"CloudFlare","url":"cloudflare\/index.live.php"},{"url":"module_installers\/index.html?lang=php-pear","name":"PHP PEAR Packages","searchText":"PHP PEAR Packages"},{"searchText":"Perl Modules","url":"module_installers\/index.html?lang=perl","name":"Perl Modules"},{"url":"module_installers\/index.html?lang=ruby","name":"RubyGems","searchText":"RubyGems ror ruby gems rails"},{"url":"ror\/index.html","name":"Ruby on Rails","searchText":"Ruby on Rails"},{"url":"sitereptile\/index.php","name":"SiteBuilder","searchText":"SiteBuilder"},{"searchText":"Softaculous Apps Installer","url":"softaculous\/index.live.php","name":"Softaculous Apps Installer"},{"url":"lveversion\/extension-selector.html.tt","name":"Select PHP Version","searchText":"Select PHP Version"},{"searchText":"Cron Jobs cronjob crontab edit","name":"Cron Jobs","url":"cron\/index.html"},{"url":"net\/index.html","name":"Track DNS","searchText":"Track DNS traceroute tracert dnslookup dig network tools"},{"searchText":"Indexes index manager","url":"indexmanager\/index.html","name":"Indexes"},{"name":"Error Pages","url":"err\/index.html","searchText":"Error Pages errorlog error_log error log"},{"url":"mime\/handle.html","name":"Apache Handlers","searchText":"Apache Handlers apache handlers extension configure"},{"url":"mime\/mime.html","name":"MIME Types","searchText":"MIME Types mimetype types"},{"name":"Password &amp; Security","url":"passwd\/index.html","searchText":"password &amp; security change facebook external google secure cpanel Password &amp; Security"},{"url":"setlang\/index.html","name":"Change Language","searchText":"language setlang Change Language"},{"searchText":"skin theme Change Style","url":"styleswitcher\/index.html","name":"Change Style"},{"searchText":"contact email Contact Information","url":"contact\/index.html","name":"Contact Information"},{"url":"user_manager\/index.html","name":"User Manager","searchText":"password change ftp email webdisk webdav service User Manager"},{"url":"softaculous\/index.live.php","name":"Softaculous Apps Installer","searchText":"Softaculous Apps Installer"},{"name":"Create New Ticket","url":"supnewticket\/index.livephp","searchText":"Create New Ticket"},{"name":"Show Support Tickets","url":"suplistopenticket\/index.livephp","searchText":"Show Support Tickets"},{"searchText":"Notifications","name":"Notifications","url":"home\/notifications.html.tt"}];
+        </script>
+		<script type="text/javascript">
+        if (("standalone" in window.navigator) && window.navigator.standalone) {
+            jQuery(document).ready(function($) {
+                $("a").click(function(event) {
+                    var alink = document.createElement('a');
+                    alink.href = $(this).attr("href");
+                    if (alink && alink.protocol.indexOf('http') !== -1 && alink.host.indexOf(document.location.host) !== -1) {
+                        event.preventDefault();
+                        window.location = alink.href;
+                    }
+                });
+            });
+        }
+		</script>
+
+        <script>
+            window.onload = function() {
+                var img = document.getElementById("imgPoweredByCpanel");
+                if(img === null ||
+                    img.getAttribute("src") !== "/panel/pl-res/powered_by_cpanel.png") {
+                    window.location="/";
+                }
+
+                
+                // focus feature search input
+                var featureSearchInput = document.getElementById("txtQuickFind");
+
+                if(featureSearchInput) {
+                    featureSearchInput.focus();
+                }
+                
+
+                
+            };
+        </script>
+
+    
+
+
+
+
+
+
+	<!-- Softaculous --><script src="softaculous/index.live.php?act=top"></script><!-- Softaculous -->
+
+<!-- Start of StatCounter Code for Default Guide -->
+<script type="text/javascript">
+var sc_project=2288747;
+var sc_invisible=1;
+var sc_security="6cc1e10a";
+var sc_https=1;
+var scJsHost = (("https:" == document.location.protocol) ?
+"https://secure." : "http://www.");
+document.write("<sc"+"ript type='text/javascript' src='" +
+scJsHost+
+"statcounter.com/counter/counter.js'></"+"script>");
+</script><script type="text/javascript" src="https://secure.statcounter.com/counter/counter.js"></script>
+
+<!-- End of StatCounter Code for Default Guide -->
+
+
+</table></div>
+   
+   <!-- PAGE TEMPLATE'S CONTENT END -->
+   <footer>
+      <!-- UI INCLUDES GLOBAL FOOTER -->
+      <!-- UI INCLUDES GLOBAL FOOTER END -->
+      <div class="container-fluid">
+         <br>
+         <!--Add your themes and scripts BELOW this line. No theme is currently active, and Responsive Domain Search is enabled.-->
+         
+         <script src="https://vpc.cdn.wybenetwork.com/responsive-domain-search/responsive-domain-search.js"
+            type="text/javascript"></script>
+         <!--Add your themes and scripts ABOVE this line. No theme is currently active, and Responsive Domain Search is enabled.-->
+         <div class="navbar">
+            <div class="navbar-brand" style="display:inline-block; z-index:2147483647; visibility:invisible;">
+               <a id="lnkPoweredByCpanel" href="https://www.cpanel.net" target="cpanel" title="cPanel, Inc."
+                  style="display:inline-block; z-index:2147483647; visibility:visible;">
+                  <img id="imgPoweredByCpanel" src="elements/powered_by_cpanel.png" alt="cPanel, Inc."
+                     style="display:inline-block; z-index:2147483647; visibility:visible;">
+               </a>
+               <sub id="txtCpanelVersion" style="display:inline-block; z-index:2147483647; visibility:visible;"></sub>
+            </div>
+         </div>
+      </div>
+      <div class="modal fade" id="demo" tabindex="-1" role="dialog" aria-labelledby="demoDisabled" aria-hidden="true"
+         style="display: none;">
+         <div class="modal-dialog" role="document">
+            <div class="modal-content">
+               <div class="modal-header"
+                  style="border: 1px solid #293a4a;background-color: rgba(41,58,74,.95);color: #fff;">
+                  <h4 class="modal-title" id="demoDisabled">Demo Mode</h4>
+               </div>
+               <div class="modal-body">
+                  <p>This functionality is disabled in demo mode!</p>
+               </div>
+               <div class="modal-footer">
+                  <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+               </div>
+            </div>
+         </div>
+      </div>
+   </footer>
+
+</body>
+
+</html>
