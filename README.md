@@ -1,7 +1,7 @@
-Changed:
-CNAME Input Value -> Placeholder
-MySQL Create Button Disabled
-Fix Account Statistics
+Changed:<br><br>
+CNAME Input Value -> Placeholder<br>
+MySQL Create Button Disabled<br>
+Fix Account Statistics<br>
 
 # VistaPanel Demo
 
