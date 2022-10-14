@@ -1,3 +1,8 @@
+Changed:
+CNAME Input Value -> Placeholder
+MySQL Create Button Disabled
+Fix Account Statistics
+
 # VistaPanel Demo
 
 This repository contains a working demo of VistaPanel, a web hosting panel used in MyOwnFreeHost.  
