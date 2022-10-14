@@ -1,7 +1,8 @@
-Changed:<br><br>
+Changed:<br>
 CNAME Input Value -> Placeholder<br>
 MySQL Create Button Disabled<br>
 Fix Account Statistics<br>
+Account Statistics Home Button
 
 # VistaPanel Demo
 
