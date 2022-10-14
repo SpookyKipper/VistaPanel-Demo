@@ -361,65 +361,57 @@
 <body id="cpanel_body" class="yui-skin-sam">
   <div id="wrap">
     <header id="masterAppContainer" ng-controller="applicationListController">
-        <div class="navbar navbar-inverse navbar-cpanel navbar-fixed-top" role="navigation">
-                <div class="navbar-header">
-                    <button type="button" id="btnSideBarToggle" class="cp-nav-toggle">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="cp-icon-bar"></span>
-                        <span class="cp-icon-bar"></span>
-                        <span class="cp-icon-bar"></span>
-                    </button>
-
-
-                    
-                        <a id="lnkHeaderHome" class="navbar-brand" target="_top" href="indexpl.php" title="Home">
-                            <img id="imgLogo" class="navbar-brand-logo" src="https://images.hostmessage.info/login_logo/81ecdd48983c97c51b0f00ecc842f6f6.jpg" alt="">
-                        </a>
-                    
-
-                    <script type="text/ng-template" id="customTemplate.html">
-                      <a href="{{ match.model.url }}" ng-attr-target="{{match.model.target}}" ng-bind-html="match.model.name">
-                      </a>
-                    </script>
-<div class="navbar-preferences form-inline">
-                     <div class="btn-group open">
-                        <button id="btnUserPref" data-toggle="dropdown" class="btn dropdown-toggle user-preferences-btn">
+       <div class="navbar navbar-inverse navbar-cpanel navbar-fixed-top" role="navigation">
+            <div class="navbar-header">
+               <button type="button" id="btnSideBarToggle" class="cp-nav-toggle">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="cp-icon-bar"></span>
+                  <span class="cp-icon-bar"></span>
+                  <span class="cp-icon-bar"></span>
+               </button>
+               <a href="./" id="lnkHeaderHome" class="navbar-brand" target="_top" title="Home">
+                  <img id="imgLogo" class="navbar-brand-logo" src="elements/vplogo.png" alt="">
+                  <font style="vertical-align: sub;">
+                  </font>
+               </a>
+               <script type="text/ng-template" id="customTemplate.html">
+                  <a href="{{ match.model.url }}">
+                  </a>
+               </script>
+               <div class="navbar-preferences form-inline">
+                  <div class="btn-group">
+                     <button id="btnUserPref" data-toggle="dropdown" class="btn dropdown-toggle user-preferences-btn">
                         <span id="userImg" class="glyphicon glyphicon-user"></span>
                         <span id="lblUserNameTxt" class="hidden-inline-xs">YOURPREFIX_DEMO</span>
                         <span id="caretImg" class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu dropdown-menu-right">
-                           <li>
-                              <a id="lnkUserPrefChangePwd" href="#" data-toggle="modal" data-target="#demo">Change Password</a>
-                           </li>
-                           <li>
-                              <a id="lnkUserPrefChangeLang" href="#" data-toggle="modal" data-target="#demo">Change Language</a>
-                           </li>
-                           <li>
-                              <a id="lnkUserPrefUpdateContactInfo" href="#" data-toggle="modal" data-target="#demo">Update Contact Email                                    </a>
-                           </li>
-                           <li>
-                              <a id="lnkUserPrefResetInterface" href="#" data-toggle="modal" data-target="#demo" onclick="reset_all_interface_settings()">
-                              Reset Page Settings 
-                              </a>
-                           </li>
-                        </ul>
-                     </div>
-                     <a id="lnkHeaderLogout" target="_top" href="#" data-toggle="modal" data-target="#demo" class="btn link-buttons">
+                     </button>
+                     <ul class="dropdown-menu dropdown-menu-right">
+                        <li>
+                           <a id="lnkUserPrefChangePwd" href="#" data-toggle="modal" data-target="#demo">Change
+                              Password</a>
+                        </li>
+                        <li>
+                           <a id="lnkUserPrefChangeLang" href="#" data-toggle="modal" data-target="#demo">Change
+                              Language</a>
+                        </li>
+                        <li>
+                           <a id="lnkUserPrefUpdateContactInfo" href="#" data-toggle="modal" data-target="#demo">Update
+                              Contact Email </a>
+                        </li>
+                        <li>
+                           <a id="lnkUserPrefResetInterface" href="#" data-toggle="modal" data-target="#demo" onclick="reset_all_interface_settings()">
+                              Reset Page Settings
+                           </a>
+                        </li>
+                     </ul>
+                  </div>
+                  <a id="lnkHeaderLogout" target="_top" href="#" data-toggle="modal" data-target="#demo" class="btn link-buttons">
                      <span id="logoutImg" class="glyphicon glyphicon-log-out"></span>
                      <span id="lblLogout" class="hidden-inline-xs">Log Out</span>
-                     </a>
-                  </div>
-
-
-                        <a id="lnkHeaderLogout" target="_top" href="/panel/indexpl.php?option=signout" class="btn link-buttons">
-                            <span id="logoutImg" class="glyphicon glyphicon-log-out"></span>
-                            <span id="lblLogout" class="hidden-inline-xs">Log Out</span>
-                        </a>
-
-                    </div>
-                </div>
-        </div>
+                  </a>
+               </div>
+            </div>
+         </div>
         <!-- UI INCLUDES GLOBAL HEADER -->
 <div id="include-global-header">
 
@@ -485,87 +477,6 @@ alt="web statistics"></a></div></noscript><table>
 
         
         
-
-
-
-
-
-
-
-
-        <script>
-            CPANEL.lang.Close=CPANEL.lang.close="Close";CPANEL.lang.cancel="Cancel";CPANEL.lang.unlimited="Unlimited";CPANEL.lang.or="or";CPANEL.lang.ajax_loading="Loading …";CPANEL.lang.password_generator="Password Generator";CPANEL.lang.generate_password="Generate Password";CPANEL.lang.advanced="Advanced Options";CPANEL.lang.confirm_copy_password="I have copied this password in a safe place.";CPANEL.lang.use_password="Use Password";CPANEL.lang.length="Length";CPANEL.lang.alpha_characters="Alpha Characters";CPANEL.lang.nonalpha_characters="Non Alpha Characters";CPANEL.lang.both="Both";CPANEL.lang.lowercase="Lowercase";CPANEL.lang.uppercase="Uppercase";CPANEL.lang.numbers="Numbers";CPANEL.lang.symbols="Symbols";CPANEL.lang.password_strength="Password Strength";CPANEL.lang.passwords_match="Passwords Match";CPANEL.lang.password_validator_no_spaces="Password cannot have spaces.";CPANEL.lang.password_validator_no_empty="Password cannot be empty.";CPANEL.lang.password_validator_no_match="Passwords do not match.";CPANEL.lang.Validation_Errors="Validation Errors";CPANEL.lang.strength_phrase_very_weak="Very Weak";CPANEL.lang.strength_phrase_weak="Weak";CPANEL.lang.strength_phrase_ok="OK";CPANEL.lang.strength_phrase_strong="Strong";CPANEL.lang.strength_phrase_very_strong="Very Strong";CPANEL.lang.click_to_close="Click to close.";CPANEL.lang.toggle_more="more »";CPANEL.lang.toggle_less="less »";CPANEL.lang.json_error=CPANEL.lang.Error="Error";CPANEL.lang.json_parse_failed="JSON parse failed.";CPANEL.lang.ajax_error="AJAX Error";CPANEL.lang.ajax_try_again="Please refresh the page and try again.";
-        </script>
-        
-
-<script type="text/javascript">
-    register_interfacecfg_nvdata('xmainrollstatus');
-    register_interfacecfg_nvdata('xmaingroupsorder');
-</script>
-
-         
-         <script>
-            PAGE.applicationList = [{"searchText":"File Manager file-manager","target":"file_manager","url":"filemanager\/index.html","name":"File Manager"},{"url":"cpanelpro\/images.html","name":"Images","searchText":"image manager resize manager scaler thumbnailer format Images"},{"searchText":"Directory Privacy passwordprotect password protect","url":"htaccess\/index.html","name":"Directory Privacy"},{"url":"diskusage\/index.html","name":"Disk Usage","searchText":"Disk Usage disk space usage disk-usage"},{"url":"ftp\/accounts.html","name":"FTP Accounts","searchText":"FTP Accounts ftp create"},{"name":"FTP Connections","url":"ftp\/session.html","searchText":"FTP Connections ftp accounts ftp session control"},{"searchText":"Backup restore","url":"backup\/index.html","name":"Backup"},{"url":"backup\/wizard.html","name":"Backup Wizard","searchText":"Backup Wizard restore"},{"name":"phpMyAdmin","url":"sql\/PhpMyAdmin.html","searchText":"phpMyAdmin database","target":"_blank"},{"searchText":"MySQL Databases MySQL® Databases","url":"sql\/index.html","name":"MySQL® Databases"},{"url":"sql\/wizard1.html","name":"MySQL® Database Wizard","searchText":"MySQL Database Wizard mysql database MySQL® Database Wizard"},{"searchText":"Remote MySQL Remote MySQL®","name":"Remote MySQL®","url":"sql\/managehost.html"},{"searchText":"PostgreSQL Databases postgres database postgresql","url":"psql\/index.html","name":"PostgreSQL Databases"},{"url":"psql\/wizard1.html","name":"PostgreSQL Database Wizard","searchText":"PostgreSQL Database Wizard postgres postgresql database"},{"url":"\/cpsess8049864136\/3rdparty\/phpPgAdmin\/index.php","name":"phpPgAdmin","searchText":"phpPgAdmin database psql","target":"_blank"},{"searchText":"Get In Google","url":"\/cpsess8049864136\/frontend\/paper_lantern\/attracta\/index.live.pl?id=31","name":"Get In Google"},{"url":"\/cpsess8049864136\/frontend\/paper_lantern\/attracta\/index.live.pl?id=32","name":"SEO Tools","searchText":"SEO Tools"},{"searchText":"Increase Website Traffic","name":"Increase Website Traffic","url":"\/cpsess8049864136\/frontend\/paper_lantern\/attracta\/index.live.pl?id=33"},{"name":"One-Click Sitemap","url":"\/cpsess8049864136\/frontend\/paper_lantern\/attracta\/index.live.pl?id=36","searchText":"One-Click Sitemap"},{"name":"Link Building","url":"\/cpsess8049864136\/frontend\/paper_lantern\/attracta\/index.live.pl?id=35","searchText":"Link Building"},{"name":"SEO Tips","url":"\/cpsess8049864136\/frontend\/paper_lantern\/attracta\/index.live.pl?id=37","searchText":"SEO Tips"},{"searchText":"Google Website Services","url":"\/cpsess8049864136\/frontend\/paper_lantern\/attracta\/index.live.pl?id=34","name":"Google Website Services"},{"url":"site_publisher\/index.html","name":"Site Publisher","searchText":"site publisher builder start website generator template Site Publisher"},{"name":"Addon Domains","url":"addon\/index.html","searchText":"Domains Addon domain Addon Domains"},{"url":"subdomain\/index.html","name":"Subdomains","searchText":"Subdomains domain"},{"url":"park\/index.html","name":"Aliases","searchText":"Aliases Parked domains domain"},{"name":"Redirects","url":"mime\/redirect.html","searchText":"Redirects rewrite modrewrite"},{"searchText":"Simple Zone Editor cname record a record DNS","url":"zoneedit\/simple.html","name":"Simple Zone Editor"},{"searchText":"Advanced Zone Editor aaaa srv txt ttl DNS CNAME","url":"zoneedit\/advanced.html","name":"Advanced Zone Editor"},{"url":"mail\/pops.html","name":"Email Accounts","searchText":"email accounts mail pop imap smtp Email Accounts"},{"searchText":"Forwarders forward","url":"mail\/fwds.html","name":"Forwarders"},{"name":"MX Entry","url":"mail\/mx.html","searchText":"MX Entry dns"},{"url":"mail\/autores.html","name":"Autoresponders","searchText":"Autoresponders autoresponder auto responders"},{"url":"mail\/def.html","name":"Default Address","searchText":"Default Address"},{"searchText":"Mailing Lists mailman","name":"Mailing Lists","url":"mail\/lists.html"},{"searchText":"Global Email Filters filter account level filtering","name":"Global Email Filters","url":"mail\/filters\/userfilters.html"},{"searchText":"User Filters Email user level Filtering filter Email Filters","url":"mail\/filters\/managefilters.html","name":"Email Filters"},{"url":"mail\/csvimport.html","name":"Address Importer","searchText":"Address Importer Import Addresses Forwarders Mail csv import xls import"},{"name":"Apache SpamAssassin™","url":"mail\/spam\/spam.html","searchText":"Spam Assassin spamassassin Apache SpamAssassin Apache SpamAssassin™"},{"url":"gpg\/index.html","name":"Encryption","searchText":"Encryption gpg keys GnuPG Keys"},{"name":"BoxTrapper","url":"mail\/boxtrapper.html","searchText":"BoxTrapper filter"},{"url":"mail\/calendars_and_contacts\/index.html","name":"Calendars and Contacts","searchText":"email calendar contact address book CalDAV CardDAV Calendars and Contacts"},{"url":"stats\/lastvisitors_landing.html","name":"Visitors","searchText":"latest visitors Visitors"},{"name":"Errors","url":"stats\/errlog.html","searchText":"Errors errorlog error log"},{"name":"Bandwidth","url":"stats\/bandwidth.html","searchText":"Bandwidth bandmin transfer"},{"name":"Raw Access","url":"raw\/index.html","searchText":"Raw Access logs raw logs rawlogs"},{"url":"stats\/awstats_landing.html","name":"Awstats","searchText":"Awstats awstats"},{"searchText":"Analog Stats","name":"Analog Stats","url":"stats\/analog_landing.html"},{"searchText":"Webalizer stats","name":"Webalizer","url":"stats\/webalizer_landing.html"},{"name":"Webalizer FTP","url":"stats\/webalizerftp_landing.html","searchText":"Webalizer FTP stats ftp"},{"searchText":"Metrics Editor stats manager choose log programs","url":"statmanager\/index.html","name":"Metrics Editor"},{"name":"CPU and Concurrent Connection Usage","url":"stats\/resourceusage.html","searchText":"CPU and Concurrent Connection Usage"},{"name":"Script Activity","url":"throttledscripts\/index.livephp","searchText":"Script Activity"},{"name":"IP Blocker","url":"denyip\/index.html","searchText":"IP Blocker ip deny manager"},{"searchText":"SSL\/TLS certificate key csr","name":"SSL\/TLS","url":"ssl\/index.html"},{"name":"Hotlink Protection","url":"mime\/hotlink.html","searchText":"Hotlink Protection"},{"searchText":"Leech Protection protect","url":"htaccess\/leechprotect\/leechprotect.html","name":"Leech Protection"},{"url":"security\/mod_security\/index.html","name":"ModSecurity","searchText":"ModSecurity mod security mod_security"},{"name":"Two-Factor Authentication","url":"security\/2fa\/index.html","searchText":"Two Factor Authentication 2fa tfa Two-Factor Authentication"},{"searchText":"SiteLock","url":"sitelock\/index.livephp","name":"SiteLock"},{"searchText":"Lets Encrypt SSL","url":"letsencrypt\/letsencrypt.live.cgi","name":"Lets Encrypt SSL"},{"searchText":"CloudFlare","name":"CloudFlare","url":"cloudflare\/index.live.php"},{"url":"module_installers\/index.html?lang=php-pear","name":"PHP PEAR Packages","searchText":"PHP PEAR Packages"},{"searchText":"Perl Modules","url":"module_installers\/index.html?lang=perl","name":"Perl Modules"},{"url":"module_installers\/index.html?lang=ruby","name":"RubyGems","searchText":"RubyGems ror ruby gems rails"},{"url":"ror\/index.html","name":"Ruby on Rails","searchText":"Ruby on Rails"},{"url":"sitereptile\/index.php","name":"SiteBuilder","searchText":"SiteBuilder"},{"searchText":"Softaculous Apps Installer","url":"softaculous\/index.live.php","name":"Softaculous Apps Installer"},{"url":"lveversion\/extension-selector.html.tt","name":"Select PHP Version","searchText":"Select PHP Version"},{"searchText":"Cron Jobs cronjob crontab edit","name":"Cron Jobs","url":"cron\/index.html"},{"url":"net\/index.html","name":"Track DNS","searchText":"Track DNS traceroute tracert dnslookup dig network tools"},{"searchText":"Indexes index manager","url":"indexmanager\/index.html","name":"Indexes"},{"name":"Error Pages","url":"err\/index.html","searchText":"Error Pages errorlog error_log error log"},{"url":"mime\/handle.html","name":"Apache Handlers","searchText":"Apache Handlers apache handlers extension configure"},{"url":"mime\/mime.html","name":"MIME Types","searchText":"MIME Types mimetype types"},{"name":"Password &amp; Security","url":"passwd\/index.html","searchText":"password &amp; security change facebook external google secure cpanel Password &amp; Security"},{"url":"setlang\/index.html","name":"Change Language","searchText":"language setlang Change Language"},{"searchText":"skin theme Change Style","url":"styleswitcher\/index.html","name":"Change Style"},{"searchText":"contact email Contact Information","url":"contact\/index.html","name":"Contact Information"},{"url":"user_manager\/index.html","name":"User Manager","searchText":"password change ftp email webdisk webdav service User Manager"},{"url":"softaculous\/index.live.php","name":"Softaculous Apps Installer","searchText":"Softaculous Apps Installer"},{"name":"Create New Ticket","url":"supnewticket\/index.livephp","searchText":"Create New Ticket"},{"name":"Show Support Tickets","url":"suplistopenticket\/index.livephp","searchText":"Show Support Tickets"},{"searchText":"Notifications","name":"Notifications","url":"home\/notifications.html.tt"}];
-        </script>
-		<script type="text/javascript">
-        if (("standalone" in window.navigator) && window.navigator.standalone) {
-            jQuery(document).ready(function($) {
-                $("a").click(function(event) {
-                    var alink = document.createElement('a');
-                    alink.href = $(this).attr("href");
-                    if (alink && alink.protocol.indexOf('http') !== -1 && alink.host.indexOf(document.location.host) !== -1) {
-                        event.preventDefault();
-                        window.location = alink.href;
-                    }
-                });
-            });
-        }
-		</script>
-
-        <script>
-            window.onload = function() {
-                var img = document.getElementById("imgPoweredByCpanel");
-                if(img === null ||
-                    img.getAttribute("src") !== "/panel/pl-res/powered_by_cpanel.png") {
-                    window.location="/";
-                }
-
-                
-                // focus feature search input
-                var featureSearchInput = document.getElementById("txtQuickFind");
-
-                if(featureSearchInput) {
-                    featureSearchInput.focus();
-                }
-                
-
-                
-            };
-        </script>
-
-    
-
-
-
-
-
-
-	<!-- Softaculous --><script src="softaculous/index.live.php?act=top"></script><!-- Softaculous -->
-
-<!-- Start of StatCounter Code for Default Guide -->
-<script type="text/javascript">
-var sc_project=2288747;
-var sc_invisible=1;
-var sc_security="6cc1e10a";
-var sc_https=1;
-var scJsHost = (("https:" == document.location.protocol) ?
-"https://secure." : "http://www.");
-document.write("<sc"+"ript type='text/javascript' src='" +
-scJsHost+
-"statcounter.com/counter/counter.js'></"+"script>");
-</script><script type="text/javascript" src="https://secure.statcounter.com/counter/counter.js"></script>
-
-<!-- End of StatCounter Code for Default Guide -->
 
 
 </table></div>
